@@ -1,0 +1,115 @@
+.game-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    height: 80vh;
+    max-height: 600px;
+    align-content: stretch;
+}
+
+@media screen and (max-width: 1023px) {
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+    }
+}
+
+#shooter-area {
+    position: relative;
+    width: 100%;
+    height: 400px; 
+    overflow: hidden !important;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: crosshair;
+}
+
+.cannon-base {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+    background: var(--border);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    z-index: 8;
+}
+
+.cannon-barrel {
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 6px);
+    width: 12px;
+    height: 40px;
+    background: var(--foreground);
+    border-radius: 4px;
+    transform-origin: bottom center;
+    z-index: 7;
+    transition: transform 0.05s linear;
+}
+
+.laser-beam {
+    position: absolute;
+    width: 2px;
+    background: var(--foreground);
+    transform-origin: bottom center;
+    z-index: 6;
+    pointer-events: none;
+    animation: fade-laser 0.2s forwards ease-out;
+}
+
+@keyframes fade-laser {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#tech-inventory {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+#tech-inventory h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+#inventory-list {
+    list-style: none;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 5px;
+}
+
+#inventory-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+#inventory-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+#inventory-list::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+}
+
+#shooter-area.drag-over {
+    border: 2px dashed var(--muted);
+    background: rgba(250, 250, 250, 0.02);
+}
