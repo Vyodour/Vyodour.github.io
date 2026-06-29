@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roja Fadilah</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="components/templates/spa-layout.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <header id="top-navbar">
+      <nav class="nav-links">
+        <a href="#landing" class="nav-link active">Home</a>
+        <a href="#profil" class="nav-link">Profile</a>
+        <a href="#tech" class="nav-link">Arsenal</a>
+        <a href="#experience" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <main id="app-container">
+      <section id="landing" class="panel fade-section">
+        <div class="content-wrapper text-center">
+          <h1 class="hero-title">Roja Fadilah.</h1>
+          <h2 class="hero-subtitle">Software Engineer</h2>
+          <p class="hero-desc">
+            Specializing in full-stack systems, user-centric design, and
+            intelligent applications to build immersive digital solutions.
+          </p>
+          <a href="#profil" class="shadcn-btn">View Profile</a>
+        </div>
+      </section>
+
+      <section id="profil" class="panel fade-section">
+        <div class="content-wrapper">
+          <h2 class="section-title">Profile.</h2>
+          <div class="bento-grid">
+            <div class="bento-card bio-card">
+              <h3>Biography</h3>
+              <p>
+                I am a versatile Software Engineer with a solid 3-year
+                foundation in full-stack development, UI/UX design, and
+                cross-platform applications. My journey includes designing
+                interfaces in Figma, building robust web systems with Laravel,
+                and developing multi-platform apps using Flutter. Driven by
+                innovation, I have also competed in AI development using Python.
+              </p>
+              <p>
+                Beyond technical skills, my 6-month internship at an Internet
+                Service Provider (ISP) sharpened my real-world engineering
+                capabilities. It provided me with deep insights into
+                professional workflows, agile team collaboration, and effective
+                communication. From initial concept and system design to final
+                deployment, I thrive in taking projects across the finish line
+                with clean logic and scalable architecture.
+              </p>
+            </div>
+
+            <div class="bento-card stats-card">
+              <h3 style="display: flex; align-items: center; gap: 0.5rem">
+                Environment
+                <img
+                  src="https://camo.githubusercontent.com/b729c68bcba968a787f5de0c74152ba7b72088115e482e5c016eb46c4ea7ee38/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f64673264677a6274342f696d6167652f75706c6f61642f76313538373037303137372f65787465726e616c5f6173736574732f6f70656e5f736f757263652f69636f6e732f646f74656e762e706e67"
+                  alt=".env"
+                  class="custom-env-icon-title"
+                />
+              </h3>
+              <br />
+              <ul class="minimal-list-items inline-icons">
+                <li>
+                  <strong>OS:</strong>
+                  <div class="icon-group">
+                    <div class="tooltip-container" data-tooltip="Fedora Linux">
+                      <i class="devicon-fedora-plain"></i>
+                    </div>
+                    <div class="tooltip-container" data-tooltip="Windows 11">
+                      <i class="devicon-windows8-original"></i>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <strong>Deploy:</strong>
+                  <div class="icon-group">
+                    <div class="tooltip-container" data-tooltip="GitHub Pages">
+                      <i class="devicon-github-original"></i>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <strong>IDE:</strong>
+                  <div class="icon-group">
+                    <div class="tooltip-container" data-tooltip="VS Code">
+                      <i class="devicon-vscode-plain"></i>
+                    </div>
+                    <div class="tooltip-container" data-tooltip="Antigravity">
+                      <img
+                        src="https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png"
+                        alt="Antigravity"
+                        class="custom-tool-icon"
+                      />
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tech" class="panel fade-section">
+        <div class="content-wrapper game-container">
+          <h2 class="section-title">Tech Stack.</h2>
+          <p class="section-desc">
+            A representation of the core tech stack utilized in my development
+            workflow.
+          </p>
+
+          <div id="shooter-area" class="minimal-border"></div>
+
+          <div id="tech-inventory">
+            <h3>Inventory:</h3>
+            <ul id="inventory-list" class="minimal-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="panel fade-section">
+        <div class="content-wrapper">
+          <h2 class="section-title">Projects & Achievement.</h2>
+
+          <div class="shadcn-tabs-container">
+            <button class="tab-btn active" data-tab="projects">
+              Projects (7)
+            </button>
+            <button class="tab-btn" data-tab="certs">Achievement (2)</button>
+          </div>
+
+          <div id="content-projects" class="tab-content active">
+            <div class="marquee-container">
+              <div class="marquee-track">
+                <!-- 1 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="Network Quality and Monitoring (NQAM)"
+                  data-img="assets/images/nqam.png"
+                  data-desc="REST API dengan performa tinggi untuk sistem manajemen aspirasi dan pengaduan siswa, menjamin keamanan data dan kecepatan respon tinggi."
+                  data-tech="Go(Go-lang),Vue.js,PostgreSQL"
+                  data-link="https://github.com/username/student-api"
+                >
+                  <h3>Network Quality and Monitoring</h3>
+                  <p>
+                    Monitoring web application to analyze network quality across
+                    the country.
+                  </p>
+                  <div class="card-footer">
+                    <span class="badge">Golang</span>
+                    <span class="badge">Vue.js</span>
+                    <span class="badge">PostgreSQL</span>
+                  </div>
+                </div>
+                <!-- 2 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="LibreNMS Research"
+                  data-img="assets/images/libre-nms.png"
+                  data-desc="A complex enterprise SLA program built using Laravel and the LibreNMS API, designed to enhance helpdesk team efficiency in compiling client-based data, generating reports, and delivering requested outputs. Some features include an NMS (Network Monitoring System) displaying LibreNMS API graph data, device CRUD system, single and batch file exports, and role-based access control."
+                  data-tech="LibreNMS,Laravel,Caching"
+                  data-link="https://github.com/farrel-codenoob29/librenms_automation_system"
+                >
+                  <h3>LibreNMS Research</h3>
+                  <p>SLA Export and Monitoring for ISP Company</p>
+                  <div class="card-footer">
+                    <span class="badge">LibreNMS</span>
+                    <span class="badge">Laravel</span>
+                    <span class="badge">Caching</span>
+                  </div>
+                </div>
+                <!-- 3 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="Student Aspirations API"
+                  data-img="assets/images/student-aspiration.png"
+                  data-desc="High-performance REST API for student aspiration and complaint management system, ensuring data security and high response speed."
+                  data-tech="Rust,Actix-web,PostgreSQL"
+                  data-link="https://github.com/Vyodour/projek_web_ukk"
+                >
+                  <h3>Student Aspirations</h3>
+                  <p>
+                    High-performance REST API for managing student complaint
+                    data.
+                  </p>
+                  <div class="card-footer">
+                    <span class="badge">Rust</span>
+                    <span class="badge">Actix-web</span>
+                    <span class="badge">PostgreSQL</span>
+                  </div>
+                </div>
+                <!-- 4 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="Amerta AI - Financial Management Assistant"
+                  data-img="assets/images/amerta-ai.png"
+                  data-desc="This is a hackathon competition organized by the Imphnen community. My role was to design the program, document it, and check its quality. The background was a financial problem for entrepreneurs to improve business efficiency, both in terms of calculations and time utilization. The project was worked on by 5(five) members, each with their own role."
+                  data-tech="Laravel,Quality Assurance,Markdown"
+                  data-link="https://github.com/ThurZ34/Amerta-AI"
+                >
+                  <h3>Amerta AI</h3>
+                  <p>
+                    AI assistant application to help entrepreneurs manage their
+                    finances.
+                  </p>
+                  <div class="card-footer">
+                    <span class="badge">Laravel</span>
+                    <span class="badge">Quality Assurance</span>
+                    <span class="badge">Markdown</span>
+                  </div>
+                </div>
+                <!-- 5 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="UI Library/Component for Company"
+                  data-img="assets/images/ui-component.png"
+                  data-desc="A collection of flexible, reusable workspace components designed for companies, featuring authentic designs that align with their specific themes or distinctive characteristics."
+                  data-tech="Laravel,Tailwind,ShadCN,Alpine.js"
+                  data-link="https://github.com/Vyodour/ui_component"
+                >
+                  <h3>UI Library/Component for Company</h3>
+                  <p>UI components designed for enterprise workspaces.</p>
+                  <div class="card-footer">
+                    <span class="badge">Laravel</span>
+                    <span class="badge">Tailwind</span>
+                    <span class="badge">ShadCN</span>
+                    <span class="badge">Alpine.js</span>
+                  </div>
+                </div>
+                <!-- 6 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="Scan To Speak - AI Computer Vision"
+                  data-img="assets/images/scan-to-speak.png"
+                  data-desc="A project about computer vision AI in python tech with some library like OpenCV and TTS (text to speech) in Indonesian and English languages. This project was made in a short time, about three to four days and getting to used for two competitions which is Axioo AI skills and krenova (creation and innovation) in balikpapan city"
+                  data-tech="Python,OpenCV,TTS"
+                  data-link="https://youtu.be/2-MzkIUHjKk?si=gKCAtEcVCGtcwYjZ"
+                >
+                  <h3>Scan To Speak - AI Computer Vision</h3>
+                  <p>The project used for my two tech competitions</p>
+                  <div class="card-footer">
+                    <span class="badge">Python</span>
+                    <span class="badge">OpenCV</span>
+                    <span class="badge">TTS</span>
+                  </div>
+                </div>
+                <!-- 7 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="Pixel Art Collab"
+                  data-img="assets/images/pixel-colab.png"
+                  data-desc="A real-time collaborative pixel art canvas web application that allows multiple users to draw on the same canvas simultaneously using Laravel Reverb which is the WebSocket technology in Laravel."
+                  data-tech="Laravel,Vue.js,Reverb"
+                  data-link="https://github.com/Vyodour/pixel-collaborative-web"
+                >
+                  <h3>Pixel Art Collab</h3>
+                  <p>
+                    Real-time collaborative pixel art canvas web application.
+                  </p>
+                  <div class="card-footer">
+                    <span class="badge">Laravel</span>
+                    <span class="badge">Vue.js</span>
+                    <span class="badge">Reverb</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="content-certs" class="tab-content">
+            <div class="marquee-container">
+              <div class="marquee-track">
+                <!-- 1 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="Axioo AI Skill Contest 2024 Certificate"
+                  data-img="assets/images/axioo.png"
+                  data-desc="Completion of an artificial intelligence specialization program, which focuses on creating models that can read and scan text and then convert it into speech with the aim of facilitating communication for people with speech disorders."
+                  data-tech="Python,PyTorch,Tensorflow"
+                  data-link="https://youtu.be/2-MzkIUHjKk?si=gKCAtEcVCGtcwYjZ"
+                >
+                  <h3>Axioo AI Skill Contest 2024</h3>
+                  <p>
+                    Completion of artificial intelligence programs and
+                    participation in competitions
+                  </p>
+                  <div class="card-footer">
+                    <span class="badge outline">See Credential! ↗</span>
+                  </div>
+                </div>
+                <!-- 2 -->
+                <div
+                  class="shadcn-card interactive-card"
+                  data-title="KRENOVA Kota Balikpapan 2025 - BAPPEDA Kota Balikpapan"
+                  data-img=""
+                  data-desc="Showcasing a technological innovation by highlighting its strategic benefits, development process, and real-world application."
+                  data-tech="Technical Pitching,Executive Presentation"
+                  data-link="https://youtu.be/2-MzkIUHjKk?si=gKCAtEcVCGtcwYjZ"
+                >
+                  <h3>
+                    KRENOVA Kota Balikpapan 2025 - BAPPEDA Kota Balikpapan
+                  </h3>
+                  <p>Presenting 'Scan to Speak' to the Jury</p>
+                  <div class="card-footer">
+                    <span class="badge outline">See Credential! ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="project-modal" class="shadcn-modal">
+        <div class="modal-content">
+          <button class="modal-close" id="close-modal">&times;</button>
+          <div class="modal-img-wrapper">
+            <img
+              id="modal-img"
+              src=""
+              alt="Project Image"
+              onerror="this.style.display = 'none'"
+            />
+          </div>
+          <h3 id="modal-title">Project Name</h3>
+          <p id="modal-desc">Description of the project will appear here.</p>
+          <div
+            id="modal-tech"
+            class="card-footer"
+            style="margin-top: 1rem; margin-bottom: 1.5rem"
+          ></div>
+          <a
+            id="modal-link"
+            href="#"
+            target="_blank"
+            class="shadcn-btn w-full text-center"
+            >See Project! ↗</a
+          >
+        </div>
+      </div>
+
+      <section id="contact" class="panel fade-section">
+        <div class="content-wrapper">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2
+                class="section-title"
+                style="border: none; padding: 0; margin-bottom: 0.5rem"
+              >
+                Contact.
+              </h2>
+              <p class="section-desc">Want to talk further? Contact me.</p>
+
+              <div class="social-links">
+                <a href="mailto:rojafadilah0203@gmail.com" class="social-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                  <div class="btn-text">
+                    <span class="btn-value">rojafadilah0203@gmail.com</span>
+                  </div>
+                </a>
+                <a href="tel:+6285750529930" class="social-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    />
+                  </svg>
+                  <div class="btn-text">
+                    <span class="btn-value">+62 857 5052 9930</span>
+                  </div>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/roja-fadilah-911977387/"
+                  target="_blank"
+                  class="social-btn"
+                >
+                  <i class="devicon-linkedin-plain" style="font-size: 22px"></i>
+                  <div class="btn-text">
+                    <span class="btn-value">Roja Fadilah</span>
+                  </div>
+                </a>
+                <a
+                  href="https://www.instagram.com/krashuuu_/"
+                  target="_blank"
+                  class="social-btn"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                  <div class="btn-text">
+                    <span class="btn-value">@krashuuu_</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-form-container">
+              <form
+                action="https://formspree.io/f/mrewgedw"
+                method="POST"
+                class="shadcn-form"
+              >
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Please Insert Your Real Name"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="_replyto"
+                    required
+                    placeholder="Insert Your Email"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Hi, let's get to know each other..."
+                  ></textarea>
+                </div>
+
+                <input type="text" name="_gotcha" style="display: none" />
+
+                <button type="submit" class="shadcn-btn w-full">
+                  Send Message!
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="js/main.js" defer></script>
+  </body>
+</html>
