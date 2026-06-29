@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Lost in Code | Roja Fadilah</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+
+    <style>
+      .vault-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #09090b;
+        color: #fafafa;
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .vault-container {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border-radius: 12px;
+        background: rgba(39, 39, 42, 0.2);
+        border: 1px solid #27272a;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .vault-slot {
+        width: clamp(70px, 15vw, 110px);
+        height: clamp(100px, 20vw, 150px);
+        background-color: #09090b;
+        border: 1px solid #27272a;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        cursor: grab;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+      }
+
+      .vault-slot:active {
+        cursor: grabbing;
+      }
+
+      .vault-dial-strip {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .vault-number {
+        font-size: clamp(3.5rem, 10vw, 6rem);
+        font-weight: 800;
+        height: clamp(100px, 20vw, 150px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: -0.05em;
+        color: #a1a1aa;
+        transition: color 0.2s ease;
+      }
+
+      .vault-number.active-num {
+        color: #fafafa;
+        text-shadow: 0 0 15px rgba(250, 250, 250, 0.15);
+      }
+
+      .vault-slot::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(9, 9, 11, 0.95) 0%,
+          transparent 25%,
+          transparent 75%,
+          rgba(9, 9, 11, 0.95) 100%
+        );
+        z-index: 10;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="vault-app"></div>
+
+    <script>
+      const coreInterval = setInterval(() => {
+        if (window.React && window.ReactDOM && window.Motion) {
+          clearInterval(coreInterval);
+          initPureJSVault();
+        }
+      }, 30);
+
+      function initPureJSVault() {
+        const { motion, useMotionValue, useAnimation } = window.Motion;
+        const React = window.React;
+        const e = React.createElement;
+
+        function DialSlot({ targetNumber }) {
+          const numbers = [
+            (targetNumber + 8) % 10,
+            (targetNumber + 9) % 10,
+            targetNumber,
+            (targetNumber + 1) % 10,
+            (targetNumber + 2) % 10,
+          ];
+
+          const slotHeight = Math.min(window.innerWidth * 0.2, 150);
+          const centerOffset = -2 * slotHeight;
+
+          const y = useMotionValue(centerOffset);
+          const controls = useAnimation();
+          const [isCentered, setIsCentered] = React.useState(true);
+
+          const handleDragEnd = async () => {
+            setIsCentered(false);
+            await controls.start({
+              y: centerOffset,
+              transition: { type: "spring", stiffness: 400, damping: 18 },
+            });
+            setIsCentered(true);
+          };
+
+          React.useEffect(() => {
+            controls.start({
+              y: [
+                centerOffset,
+                centerOffset - 40,
+                centerOffset + 30,
+                centerOffset,
+              ],
+              transition: { duration: 1.5, ease: "easeInOut", delay: 0.2 },
+            });
+          }, []);
+
+          return e(
+            "div",
+            { className: "vault-slot", style: { height: `${slotHeight}px` } },
+            e(
+              motion.div,
+              {
+                className: "vault-dial-strip",
+                drag: "y",
+                dragConstraints: {
+                  top: centerOffset - 100,
+                  bottom: centerOffset + 100,
+                },
+                dragElastic: 0.4,
+                style: { y },
+                animate: controls,
+                onDragEnd: handleDragEnd,
+              },
+              numbers.map((num, idx) =>
+                e(
+                  "div",
+                  {
+                    key: idx,
+                    className: `vault-number ${idx === 2 && isCentered ? "active-num" : ""}`,
+                    style: { height: `${slotHeight}px` },
+                  },
+                  num,
+                ),
+              ),
+            ),
+          );
+        }
+
+        function VaultApp() {
+          return e(
+            "div",
+            { className: "vault-layout" },
+            e(
+              "div",
+              { className: "vault-container" },
+              e(DialSlot, { targetNumber: 4 }),
+              e(DialSlot, { targetNumber: 0 }),
+              e(DialSlot, { targetNumber: 4 }),
+            ),
+            e(
+              "h1",
+              {
+                className: "hero-subtitle",
+                style: { marginBottom: "0.5rem", color: "#fafafa" },
+              },
+              "Endpoint Encrypted.",
+            ),
+            e("p", {
+              className: "section-desc",
+              style: {
+                maxWidth: "460px",
+                margin: "0 auto 2rem auto",
+                fontSize: "0.95rem",
+              },
+            }),
+            e("a", { href: "index.html", className: "shadcn-btn" }, "Reset"),
+          );
+        }
+
+        const root = window.ReactDOM.createRoot(
+          document.getElementById("vault-app"),
+        );
+        root.render(e(VaultApp));
+      }
+    </script>
+  </body>
+</html>
