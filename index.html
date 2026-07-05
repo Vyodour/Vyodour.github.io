@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roja Fadilah</title>
+    <link rel="icon" type="image/png" href="assets/images/web-icon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,8 +62,8 @@
               </p>
               <p>
                 Beyond technical skills, my 6-month internship at an Internet
-                Service Provider (ISP) Company sharpened my real-world engineering
-                capabilities. It provided me with deep insights into
+                Service Provider (ISP) Company sharpened my real-world
+                engineering capabilities. It provided me with deep insights into
                 professional workflows, agile team collaboration, and effective
                 communication. From initial concept and system design to final
                 deployment, I thrive in taking projects across the finish line
@@ -453,43 +454,44 @@
                 action="https://formspree.io/f/mrewgedw"
                 method="POST"
                 class="shadcn-form"
+                novalidate
               >
                 <div class="form-group">
-                  <label for="name">Name</label>
+                  <label for="name_field">Name</label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    required
+                    id="name_field"
+                    name="sender_name"
                     placeholder="Please Insert Your Real Name"
+                    autocomplete="off"
                   />
                 </div>
 
                 <div class="form-group">
-                  <label for="email">Email</label>
+                  <label for="email_field">Email</label>
                   <input
-                    type="email"
-                    id="email"
-                    name="_replyto"
-                    required
+                    type="text"
+                    id="email_field"
                     placeholder="Insert Your Email"
+                    autocomplete="off"
                   />
+                  <input type="hidden" name="_replyto" id="real_replyto" />
                 </div>
 
                 <div class="form-group">
-                  <label for="message">Message</label>
+                  <label for="message_field">Message</label>
                   <textarea
-                    id="message"
+                    id="message_field"
                     name="message"
                     rows="5"
-                    required
                     placeholder="Hi, let's get to know each other..."
+                    autocomplete="off"
                   ></textarea>
                 </div>
 
                 <input type="text" name="_gotcha" style="display: none" />
 
-                <button type="submit" class="shadcn-btn w-full">
+                <button type="button" id="send-btn" class="shadcn-btn w-full">
                   Send Message!
                 </button>
               </form>

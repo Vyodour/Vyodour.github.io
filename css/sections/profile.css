@@ -1,0 +1,174 @@
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.bento-card {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s ease;
+}
+
+.bento-card:hover {
+    background: rgba(250, 250, 250, 0.02);
+}
+
+.bento-card h3 {
+    font-size: 1.1rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.bento-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: justify;      
+    text-justify: inter-word; 
+    margin-bottom: 1.2rem;    
+}
+
+.bento-card p:last-child {
+    margin-bottom: 0;
+}
+
+.bio-card {
+    grid-column: span 2;
+}
+
+.stats-card, .focus-card {
+    grid-column: span 1;
+}
+
+.minimal-list-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.minimal-list-items li {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.minimal-list-items li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.minimal-list-items strong {
+    color: var(--foreground);
+    display: inline-block;
+    width: 70px;
+}
+
+.custom-env-icon-title {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(200%);
+    opacity: 0.9;
+}
+
+.minimal-list-items.inline-icons li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.minimal-list-items.inline-icons strong {
+    width: 60px;
+}
+
+.icon-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.tooltip-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tooltip-container i,
+.tooltip-container svg {
+    font-size: 1.6rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    color: var(--muted);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.tooltip-container:hover i,
+.tooltip-container:hover svg {
+    color: var(--foreground);
+    transform: scale(1.1) translateY(-2px);
+}
+
+.tooltip-container::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--foreground);
+    color: var(--background);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, bottom 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.tooltip-container:hover::after {
+    opacity: 1;
+    bottom: -35px;
+}
+
+.custom-tool-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(150%);
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+.tooltip-container:hover .custom-tool-icon {
+    opacity: 1;
+    filter: grayscale(100%) brightness(300%);
+    transform: scale(1.1) translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bio-card, .stats-card, .focus-card {
+        grid-column: span 1;
+    }
+    .bento-card p {
+        text-align: left;
+    }
+}
