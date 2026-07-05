@@ -132,7 +132,6 @@ export class TechShooter {
     }
 
     fireLaser(e) {
-        if (e.target.closest('.tech-asteroid')) return;
 
         const rect = this.area.getBoundingClientRect();
         const clickX = e.clientX - rect.left;
@@ -158,16 +157,25 @@ export class TechShooter {
         setTimeout(() => beam.remove(), 200);
 
         let hitIndex = -1;
-        for (let i = 0; i < this.asteroids.length; i++) {
-            const ast = this.asteroids[i];
-            const centerX = ast.x + ast.size / 2;
-            const centerY = ast.y + ast.size / 2;
-            const radius = ast.size / 2;
 
-            const dist = Math.sqrt((clickX - centerX) ** 2 + (clickY - centerY) ** 2);
-            if (dist <= radius) {
-                hitIndex = i;
-                break;
+        const clickedAsteroidEl = e.target.closest('.tech-asteroid');
+        if (clickedAsteroidEl) {
+            const targetId = clickedAsteroidEl.dataset.id;
+            hitIndex = this.asteroids.findIndex(ast => ast.id === targetId);
+        }
+
+        if (hitIndex === -1) {
+            for (let i = 0; i < this.asteroids.length; i++) {
+                const ast = this.asteroids[i];
+                const centerX = ast.x + ast.size / 2;
+                const centerY = ast.y + ast.size / 2;
+                const radius = (ast.size / 2) + 5; 
+
+                const dist = Math.sqrt((clickX - centerX) ** 2 + (clickY - centerY) ** 2);
+                if (dist <= radius) {
+                    hitIndex = i;
+                    break;
+                }
             }
         }
 
