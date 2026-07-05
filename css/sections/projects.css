@@ -1,0 +1,196 @@
+.project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.minimal-project {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.minimal-project h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.minimal-project p { color: var(--muted); margin-bottom: 1rem; }
+
+.tech-tags { display: flex; gap: 0.5rem; }
+.tech-tags span {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    background: var(--border);
+    border-radius: 4px;
+    color: var(--foreground);
+}
+
+.shadcn-tabs-container {
+    display: inline-flex;
+    background: rgba(250, 250, 250, 0.05); 
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 2rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: var(--foreground);
+}
+
+.tab-btn.active {
+    background: var(--background);
+    color: var(--foreground);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+}
+
+.tab-content {
+    display: none;
+    max-height: 500px; 
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.tab-content::-webkit-scrollbar { width: 4px; }
+.tab-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.shadcn-card {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease;
+    flex: 0 0 320px; 
+    cursor: pointer;
+}
+
+.shadcn-card:hover {
+    border-color: var(--muted);
+}
+
+.shadcn-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.shadcn-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: scrollLeft 30s linear infinite;
+}
+
+.interactive-card:hover {
+    border-color: var(--foreground);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.75rem)); }
+}
+
+.slide-carousel-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-height: 250px;
+    animation: none !important;
+}
+
+.slide-carousel-track .shadcn-card {
+    position: absolute;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    width: 320px;
+}
+
+.slide-carousel-track .shadcn-card.slide-active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+    z-index: 3;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--muted);
+}
+
+.slide-carousel-track .shadcn-card.slide-prev {
+    opacity: 0.3;
+    transform: translateX(-105%) scale(0.85);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.slide-carousel-track .shadcn-card.slide-next {
+    opacity: 0.3;
+    transform: translateX(105%) scale(0.85);
+    pointer-events: none;
+    z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .marquee-container {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+    .shadcn-card {
+        flex: 0 0 280px; 
+    }
+    .slide-carousel-track .shadcn-card {
+        width: 280px;
+    }
+    .slide-carousel-track .shadcn-card.slide-prev {
+        transform: translateX(-80%) scale(0.8); 
+    }
+    .slide-carousel-track .shadcn-card.slide-next {
+        transform: translateX(80%) scale(0.8);
+    }
+}
